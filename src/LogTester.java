@@ -1,6 +1,15 @@
 import logUtils.Log;
 import logUtils.Loggable;
 
+/**
+ * LogTester Class.
+ *
+ * <P> Written as a driver class to test the functionality of {@link Loggable}</P>
+ *
+ * @author Avidh Bavkar (Team 7404: HighTide) [avidhbavkar@gmail.com]
+ * @version 1.0
+ * @since   1.0
+ */
 public class LogTester extends Loggable {
 
     public static final int TEST_LOG_X_SIZE = 5;
