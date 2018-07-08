@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * <P>Represents a log of the changes to a certain set of provided objects over time</P>
  *
  * @author Avidh Bavkar (Team 7404: HighTide) [avidhbavkar@gmail.com]
- * @version 1.0
+ * @version 1.1
  * @since   1.0
  */
 public class Log {
@@ -33,7 +33,7 @@ public class Log {
      * @param copyFrom the log object to create a copy of.
      */
     public Log(Log copyFrom){
-        contents = copyFrom.asRaw();
+        contents = copyFrom.getRaw();
     }
 
     /**
@@ -54,7 +54,7 @@ public class Log {
      *
      * @return A copy of the contents of the log in it's rather unwieldy raw form
      */
-    public ArrayList<Object[]> asRaw(){
+    private ArrayList<Object[]> getRaw(){
         return new ArrayList<>(contents);
     }
 
