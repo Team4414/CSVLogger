@@ -58,14 +58,6 @@ public class Log {
         return new ArrayList<>(contents);
     }
 
-    /**
-     * Clear Method.
-     *
-     * <P> Deletes all log values from the log </P>
-     */
-    public void clear(){
-        contents.clear();
-    }
 
     /**
      * As Array List Method.

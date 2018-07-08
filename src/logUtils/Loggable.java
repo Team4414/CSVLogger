@@ -39,15 +39,7 @@ public abstract class Loggable {
     public void log(){
         log.append(collectData());
     }
-
-    /**
-     * Clear Method.
-     *
-     * <P> Clears the log </P>
-     */
-    public void clear(){
-        log.clear();
-    }
+    
 
     /**
      * Get Method.
