@@ -11,6 +11,8 @@ package logUtils;
  */
 public abstract class Loggable {
 
+    String[] keys;
+
     /**
      * The {@link Log} object that stores all logged values for this class.
      */
@@ -18,8 +20,11 @@ public abstract class Loggable {
 
     /**
      * Constructor
+     *
+     * @param keys The labels to the data in the order that they will be passed in on "collectData()".
      */
-    public Loggable(){
+    public Loggable(String[] keys){
+        this.keys = keys;
         log = new Log();
     }
 
@@ -37,7 +42,14 @@ public abstract class Loggable {
      * <P> Must be called at a periodic interval to capture and write a "snapshot" to the log </P>
      */
     public void log(){
-        log.append(collectData());
+        Object[] logMe = collectData();
+
+        if (logMe.length != keys.length){
+            System.err.println("!!!!! NUMBER OF PASSED KEYS DOES NOT MATCH AMOUNT OF DATA !!!!!");
+        }else {
+            for (int i = 0; i < logMe.length; i++)
+                log.append(keys[i], logMe[i]);
+        }
     }
 
 
