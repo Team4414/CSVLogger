@@ -17,6 +17,7 @@ public class LogTester extends Loggable {
     private Log log;
 
     public LogTester(){
+        super(new String[]{"ONE", "TWO", "THREE", "FOUR", "FIVE"});
         log = new Log();
     }
 
