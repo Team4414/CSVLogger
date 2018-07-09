@@ -1,6 +1,7 @@
 package logUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Log Class.
@@ -8,7 +9,7 @@ import java.util.ArrayList;
  * <P>Represents a log of the changes to a certain set of provided objects over time</P>
  *
  * @author Avidh Bavkar (Team 7404: HighTide) [avidhbavkar@gmail.com]
- * @version 1.1
+ * @version 2.0
  * @since   1.0
  */
 public class Log {
@@ -16,13 +17,14 @@ public class Log {
     /**
      * The raw contents of the log.
      */
-    private ArrayList<Object[]> contents;
+    private HashMap<String, ArrayList<Object>> contents;
+
 
     /**
      * Default Constructor.
      */
     public Log(){
-        contents = new ArrayList<>();
+        contents = new HashMap<>();
     }
 
     /**
@@ -39,12 +41,15 @@ public class Log {
     /**
      * Append Method.
      *
-     * <P> Appends a "snapshot" to the log. </P>
+     * <P> Appends an individual value to the log. </P>
      *
-     * @param objects The "snapshot" of data to log.
+     * @param key The "key" of the data to log.
+     * @param object The actual data to write to that key.
      */
-    public void append(Object[] objects){
-        contents.add(objects);
+    public void append(String key, Object object){
+        if (!contents.containsKey(key))
+            contents.put(key, new ArrayList<>());
+        contents.get(key).add(object);
     }
 
     /**
@@ -52,10 +57,10 @@ public class Log {
      *
      * <P> Returns a raw copy of the contents of the log, useful for creating copies but perhaps not much else</P>
      *
-     * @return A copy of the contents of the log in it's rather unwieldy raw form
+     * @return A copy of the contents of the log in it's raw hashmap form.
      */
-    private ArrayList<Object[]> getRaw(){
-        return new ArrayList<>(contents);
+    private HashMap<String, ArrayList<Object>> getRaw(){
+        return (HashMap<String, ArrayList<Object>>) contents.clone();
     }
 
 
@@ -65,18 +70,9 @@ public class Log {
      * @return The contents of this log file in the form of a 2 dimensional {@link ArrayList}
      */
     public ArrayList<ArrayList<Object>> asArrayList(){
-        ArrayList<ArrayList<Object>> returnMe = new ArrayList<>();
-        ArrayList<Object> temp = new ArrayList<>();
+        return null;
 
-        for (Object[] content: contents){
-            temp.clear();
-            for (Object val: content){
-                temp.add(val);
-            }
-            returnMe.add(temp);
-        }
-
-        return returnMe;
+        //TODO: Implement!!!
     }
 
     /**
@@ -85,12 +81,8 @@ public class Log {
      * @return The contents of this log file in the form of a 2 dimensional {@link Object} array
      */
     public Object[][] asArray(){
-        Object[][] returnMe = new Object[contents.size()][contents.get(0).length];
+        return null;
 
-        for (int i = 0; i < contents.size(); i++){
-            returnMe[i] = contents.get(i);
-        }
-
-        return returnMe;
+        //TODO: Implement!!!
     }
 }
