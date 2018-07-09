@@ -2,6 +2,7 @@ package logUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Log Class.
@@ -70,9 +71,12 @@ public class Log {
      * @return The contents of this log file in the form of a 2 dimensional {@link ArrayList}
      */
     public ArrayList<ArrayList<Object>> asArrayList(){
-        return null;
+        ArrayList<ArrayList<Object>> returnMe = new ArrayList<>();
 
-        //TODO: Implement!!!
+        for (Map.Entry<String, ArrayList<Object>> entry: contents.entrySet())
+            returnMe.add(entry.getValue());
+
+        return returnMe;
     }
 
     /**
@@ -81,8 +85,13 @@ public class Log {
      * @return The contents of this log file in the form of a 2 dimensional {@link Object} array
      */
     public Object[][] asArray(){
-        return null;
+        ArrayList<ArrayList<Object>> arrayList = this.asArrayList();
+        Object[][] returnMe = new Object[arrayList.size()][arrayList.get(0).size()];
 
-        //TODO: Implement!!!
+        for (int i = 0; i < returnMe.length; i++)
+            for (int j = 0; j < returnMe[0].length; j++)
+                returnMe[i][j] = arrayList.get(i).get(j);
+
+        return returnMe;
     }
 }
