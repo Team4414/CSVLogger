@@ -1,7 +1,7 @@
 package logUtils;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -18,14 +18,14 @@ public class Log {
     /**
      * The raw contents of the log.
      */
-    private HashMap<String, ArrayList<Object>> contents;
+    private LinkedHashMap<String, ArrayList<Object>> contents;
 
 
     /**
      * Default Constructor.
      */
     public Log(){
-        contents = new HashMap<>();
+        contents = new LinkedHashMap<>();
     }
 
     /**
@@ -47,7 +47,7 @@ public class Log {
      * @param key The "key" of the data to log.
      * @param object The actual data to write to that key.
      */
-    public void append(String key, Object object){
+    void append(String key, Object object){
         if (!contents.containsKey(key))
             contents.put(key, new ArrayList<>());
         contents.get(key).add(object);
@@ -60,8 +60,9 @@ public class Log {
      *
      * @return A copy of the contents of the log in it's raw hashmap form.
      */
-    private HashMap<String, ArrayList<Object>> getRaw(){
-        return (HashMap<String, ArrayList<Object>>) contents.clone();
+    @SuppressWarnings("unchecked")
+    private LinkedHashMap<String, ArrayList<Object>> getRaw(){
+        return (LinkedHashMap<String, ArrayList<Object>>) contents.clone();
     }
 
 

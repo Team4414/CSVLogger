@@ -11,12 +11,12 @@ package logUtils;
  */
 public abstract class Loggable {
 
-    String[] keys;
+    private String[] keys;
 
     /**
      * The {@link Log} object that stores all logged values for this class.
      */
-    Log log;
+    private Log log;
 
     /**
      * Constructor
