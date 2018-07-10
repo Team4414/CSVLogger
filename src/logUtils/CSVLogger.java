@@ -1,7 +1,14 @@
 package logUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+
 public class CSVLogger {
-    public static String logCSV(String fileName, Log input){
+
+    private static final String FILE_PATH = "csv/";
+
+    public static boolean logCSV(String fileName, Log input){
         Object[][] data = flipArray(input.asArray());
 
         String[] keys = input.getKeys();
@@ -24,8 +31,7 @@ public class CSVLogger {
             }
         }
 
-        return outputString.toString();
-
+        return writeStringToFile(fileName, outputString.toString());
     }
 
     private static Object[][] flipArray(Object[][] input){
@@ -39,4 +45,22 @@ public class CSVLogger {
 
         return temp;
     }
+
+    private static boolean writeStringToFile(String fileName, String contents){
+
+        PrintWriter fileWriter;
+        try {
+            fileWriter = new PrintWriter(new File(FILE_PATH + fileName + ".csv"));
+        } catch (FileNotFoundException e){
+            System.err.println("!!!!! FILE NOT FOUND EXCEPTION FOR \"" + fileName + "\" !!!!!");
+            return false;
+        }
+
+        fileWriter.write(contents);
+        fileWriter.close();
+
+        return true;
+    }
+
+
 }

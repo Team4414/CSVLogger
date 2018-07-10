@@ -16,9 +16,6 @@ public class Main {
             System.out.print("\n");
         }
 
-//        for (String string: logTester.get().getKeys()){
-//            System.out.println(string);
-//        }
-        System.out.println(CSVLogger.logCSV("Asdf", logTester.get()));
+        CSVLogger.logCSV("test", logTester.get());
     }
 }
