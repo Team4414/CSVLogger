@@ -95,4 +95,13 @@ public class Log {
 
         return returnMe;
     }
+
+    /**
+     * Get Keys Method.
+     *
+     * @return The String keys to this Log, which represent the labels to the different fields of the log.
+     */
+    public String[] getKeys(){
+        return (String[]) contents.keySet().toArray();
+    }
 }
