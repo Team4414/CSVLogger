@@ -1,3 +1,5 @@
+import logUtils.CSVLogger;
+
 public class Main {
     public static void main(String[] args){
         LogTester logTester = new LogTester();
@@ -13,5 +15,10 @@ public class Main {
             }
             System.out.print("\n");
         }
+
+//        for (String string: logTester.get().getKeys()){
+//            System.out.println(string);
+//        }
+        System.out.println(CSVLogger.logCSV("Asdf", logTester.get()));
     }
 }
