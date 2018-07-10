@@ -102,6 +102,10 @@ public class Log {
      * @return The String keys to this Log, which represent the labels to the different fields of the log.
      */
     public String[] getKeys(){
-        return (String[]) contents.keySet().toArray();
+        Object[] obj = contents.keySet().toArray();
+        String[] returnMe = new String[obj.length];
+        for (int i = 0; i < obj.length; i++)
+            returnMe[i] = obj[i].toString();
+        return returnMe;
     }
 }
