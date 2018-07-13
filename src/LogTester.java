@@ -1,4 +1,3 @@
-import logUtils.Log;
 import logUtils.Loggable;
 
 /**
@@ -12,33 +11,32 @@ import logUtils.Loggable;
  */
 public class LogTester extends Loggable {
 
-    public static final int TEST_LOG_X_SIZE = 5;
-    int count = 0;
+    public double one, two, three, four, five;
 
-    private Log log;
 
     public LogTester(){
-        super(new String[]{ "One", "Two", "Three", "Four", "Five"});
-        log = new Log();
+        one = 0;
+        two = 1;
+        three = 2;
+        four = 3;
+        five = 4;
     }
 
     @Override
-    protected Object[] collectData() {
+    protected LogObject[] collectData() {
 
-        Double[] content = new Double[TEST_LOG_X_SIZE];
-        int subcount = 0;
+        one++;
+        two++;
+        three++;
+        four++;
+        five++;
 
-        for (int i = 0; i < content.length; i++){
-            content[i] = (count * 10d) + subcount;
-            subcount ++;
-        }
-
-        count++;
-
-        return content;
-    }
-
-    public Log grabLog(){
-        return this.log;
+        return new LogObject[]{
+                new LogObject("One", one),
+                new LogObject("Two", two),
+                new LogObject("Three", three),
+                new LogObject("Four", four),
+                new LogObject("Five", five)
+        };
     }
 }

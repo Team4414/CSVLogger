@@ -48,6 +48,11 @@ public class Log {
      * @param object The actual data to write to that key.
      */
     void append(String key, Object object){
+
+        for (String entry: contents.keySet())
+            if (entry.equals(key))
+                key = entry;
+
         if (!contents.containsKey(key))
             contents.put(key, new ArrayList<>());
         contents.get(key).add(object);
