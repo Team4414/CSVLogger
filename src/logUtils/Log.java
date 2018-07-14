@@ -43,9 +43,6 @@ public class Log {
      * Append Method.
      *
      * <P> Appends an individual value to the log. </P>
-     *
-     * @param key The "key" of the data to log.
-     * @param object The actual data to write to that key.
      */
     void append(String key, Object object){
 

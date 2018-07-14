@@ -4,10 +4,6 @@ package logUtils;
  * Loggable Class.
  *
  * <P>Provides a framework for extending classes to log values to a {@link Log} object </P>
- *
- * @author Avidh Bavkar (Team 7404: HighTide) [avidhbavkar@gmail.com]
- * @version 1.1
- * @since   1.0
  */
 public abstract class Loggable {
 

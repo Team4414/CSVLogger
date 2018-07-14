@@ -8,10 +8,6 @@ import java.io.PrintWriter;
  * CSVLogger Class.
  *
  * <P> Allows for the contents of a provided {@link Log} object to be published to the filesystem as a CSV</P>
- *
- * @author Avidh Bavkar (Team 7404: HighTide) [avidhbavkar@gmail.com]
- * @version 1.3
- * @since 1.0
  */
 public class CSVLogger {
 
